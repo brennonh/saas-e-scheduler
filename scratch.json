@@ -1,0 +1,234 @@
+// LIFECYCLE REQUEST START
+{
+  "name": "testing",
+  "routing": "test.in",
+  "state": "RESUME"
+}
+
+{
+  "name": "testing",
+  "routing": "test.in",
+  "state": "PAUSE"
+}
+
+{
+  "name": "testing",
+  "routing": "test.in",
+  "state": "DELETE"
+}
+
+{
+  "name": "testing",
+  "type": "lifecycle",
+  "state": "CREATE",
+  "schedule": "0 * * * * ",
+  "httpTarget": {
+    "uri": "https://saas-e-scheduler-q5ypazqa2q-uc.a.run.app/api/schedule/testing",
+    "httpMethod": "DELETE"
+  }
+}
+
+{
+  "name": "testing",
+  "type": "lifecycle",
+  "state": "CREATE",
+  "schedule": "0 * * * * ",
+  "httpTarget": {
+    "uri": "https://saas-e-scheduler-q5ypazqa2q-uc.a.run.app/api/schedule/add",
+    "httpMethod": "POST",
+    "body": {  
+      "name": "testing2",
+      "type": "lifecycle",
+      "state": "CREATE",
+      "schedule": "0 * * * * ",
+      "httpTarget": {
+        "uri": "https://saas-e-scheduler-q5ypazqa2q-uc.a.run.app/api/schedule/testing",
+        "httpMethod": "GET"
+      }
+    }
+  }
+}
+
+'eyJuYW1lIjoidGVzdGluZzIiLCJzdGF0ZSI6IkNSRUFURSIsInNjaGVkdWxlIjoiMCAqICogKiAqICIsImh0dHBUYXJnZXQiOnsidXJpIjoiaHR0cHM6Ly9zYWFzLWUtc2NoZWR1bGVyLXE1eXBhenFhMnEtdWMuYS5ydW4uYXBwL2FwaS9zY2hlZHVsZS90ZXN0aW5nIiwiaHR0cE1ldGhvZCI6IkdFVCJ9fQ=='
+
+{
+  "payload": {
+    "data": {
+      "name": "provisioner-email-trigger-5",
+      "type": "lifecycle",
+      "routing": "provisioner.in",
+      "state": "DELETE"
+    }
+  },
+  "sourceId": "app-ms-provisioner"
+}
+// create scheduled email
+{
+  "name": "email",
+  "type": "lifecycle",
+  "routing": "notification.in",
+  "state": "CREATE",
+  "schedule": "0 * * * * ",
+  "job": {
+    "routing": "email.in",
+    "data": [
+      {
+        "to": "brennon.hampton@sqn.world",
+        "from": "mailgun@sandboxd8f961e2b64c4b34b9c83f3a098c82d8.mailgun.org",
+        "subject": "test",
+        "text": "go bokka"
+      }
+    ]
+  }
+}
+// create scheduled notification
+{
+  "name": "notification-test",
+  "type": "lifecycle",
+  "routing": "notification.in",
+  "state": "CREATE",
+  "schedule": "0 * * * * ",
+  "job": {
+    "routing": "notification.in",
+    "data": {
+      "priority": "warn",
+      "header": "Invalid Upload",
+      "description": "sftp.upload.invalid",
+      "redirectUrl": "http://www.google.com",
+      "additionalData": null,
+      "status": "open",
+      "assigned": "auser@sqn.world",
+      "dateCreated": "2019-03-04T09:31:03.578Z",
+      "orgId": "2200b001",
+      "permissions": [
+        "organisation.provisioning.survey.provision",
+        "organisation.provisioning.survey.reminders.send",
+        "independent.surveys.edit"
+      ]
+    }
+  }
+}
+
+{
+  "name": "provisioning-test",
+  "type": "lifecycle",
+  "routing": "provisioning-in-test",
+  "state": "CREATE",
+  "schedule": "0 * * * *",
+  "job": {
+    "routing": "provisioning-in-test",
+    "payload": {}
+  }
+}
+// LIFECYCLE REQUEST END
+// LIFECYCLE RESPONSE START
+{
+  "sourceId": "scheduler-0af7ec70-a3bc-11e9-923b-eb522ac9ec55",
+  "type": "lifecycle",
+  "payload": {
+    "name": "projects/decipher-staging-platform/locations/europe-west1/jobs/testing",
+    "pubsubTarget": {
+      "topicName": "projects/decipher-staging-platform/topics/scheduler.dispatch",
+      "data": "eyJyb3V0aW5nIjoidGVzdC5pbiIsImRhdGEiOnsibmFtZSI6ImhlbGxvIHdvcmxkIn19"
+    },
+    "userUpdateTime": "2019-07-11T09:12:44Z",
+    "state": "ENABLED",
+    "schedule": "* * * * *",
+    "timeZone": "UTC"
+  }
+}
+
+{
+  "sourceId": "scheduler-2b5b2ba0-a3c9-11e9-9b20-bd4e11cba99b",
+  "type": "lifecycle",
+  "payload": {
+    "errors": [
+      {
+        "message": "Job not found.",
+        "domain": "global",
+        "reason": "notFound"
+      }
+    ]
+  }
+}
+// LIFECYCLE RESPONSE END
+// SCHEDULE DISPATCH START
+{
+  "sourceId": "scheduler-58d1e2c0-a3bc-11e9-923b-eb522ac9ec55",
+  "type": "task",
+  "payload": {
+    "routing": "test.in",
+    "data": {
+      "name": "hello world"
+    }
+  }
+}
+// SCHEDULE DISPATCH END
+
+let dictionary = {
+  "sex": {
+    "mappedTo": "gender",
+    "values": {
+      "male": "101.102",
+      "female": "101.103",
+      "transgender": "101.105"
+    }
+  },
+  "placeOfWork": {
+    "mappedTo": "location",
+    "values": {
+      "california": "112.116",
+      "cape town": "111.115"
+    }
+  }
+}
+
+let bren = {
+    name: 'brennon',
+    surname: 'hampton',
+    sex: 'male',
+    placeOfWork: 'cape town'
+}
+
+let lara = {
+    name: 'lara',
+    surname: 'croft',
+    sex: 'female',
+    placeOfWork: 'california'
+}
+
+let records = []
+let mappedRecords = []
+records.push(bren, lara)
+
+records.forEach(employee => {
+    var key;
+    let mapRecord = {};
+    Object.keys(dictionary).forEach(el => {
+      key = dictionary[el
+    ].mappedTo; 
+      mapRecord[key
+    ] = dictionary[el
+    ].values[employee[el
+      ]
+    ];
+  })
+    mappedRecords.push(mapRecord);
+})
+
+
+curl -X POST "https://mtscheduler-q5ypazqa2q-uc.a.run.app//api/schedule" -H "accept: application/json" -H "Content-Type: application/json" -d {"name":"testing","type":"lifecycle","routing":"organisation.in","state":"CREATE","schedule":"0 * * * * ","job":{"routing":"notification","data":{"name":"hello world"}}}
+
+{
+  "name": "testing",
+  "type": "lifecycle",
+  "routing": "organisation.in",
+  "state": "CREATE",
+  "schedule": "0 * * * * ",
+  "job": {
+    "routing": "notification",
+    "data": {
+      "name": "hello world"
+    }
+  }
+}

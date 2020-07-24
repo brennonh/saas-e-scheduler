@@ -1,0 +1,257 @@
+{
+	"components": {
+		"schemas": {}
+	},
+	"info": {
+		"title": "saas-e-scheduler",
+		"version": "0.0.1",
+		"description": "A sassy scheduler"
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/api/schedule/list": {
+			"get": {
+				"operationId": "ScheduleController.showJobs",
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Show jobs",
+				"tags": [
+					"Schedule"
+				]
+			}
+		},
+		"/api/schedule/add": {
+			"post": {
+				"operationId": "ScheduleController.addJob",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					},
+					"description": "",
+					"required": false
+				},
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Add job",
+				"tags": [
+					"Schedule"
+				]
+			}
+		},
+		"/api/schedule/{id}": {
+			"delete": {
+				"operationId": "ScheduleController.removeJob",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Remove job",
+				"tags": [
+					"Schedule"
+				]
+			},
+			"get": {
+				"operationId": "ScheduleController.getJob",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Get job",
+				"tags": [
+					"Schedule"
+				]
+			},
+			"patch": {
+				"operationId": "ScheduleController.updateJob",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {}
+						}
+					},
+					"description": "",
+					"required": false
+				},
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Update job",
+				"tags": [
+					"Schedule"
+				]
+			}
+		},
+		"/api/schedule/stop/{id}": {
+			"put": {
+				"operationId": "ScheduleController.stopJob",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Stop job",
+				"tags": [
+					"Schedule"
+				]
+			}
+		},
+		"/api/schedule/start/{id}": {
+			"put": {
+				"operationId": "ScheduleController.startJob",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Start job",
+				"tags": [
+					"Schedule"
+				]
+			}
+		},
+		"/api/schedule/run/{id}": {
+			"put": {
+				"operationId": "ScheduleController.executeJob",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Execute job",
+				"tags": [
+					"Schedule"
+				]
+			}
+		},
+		"/admin/locations": {
+			"get": {
+				"operationId": "AdminController.getLocations",
+				"responses": {
+					"200": {
+						"content": {
+							"text/html; charset=utf-8": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Get locations",
+				"tags": [
+					"Admin"
+				]
+			}
+		},
+		"/admin": {
+			"get": {
+				"operationId": "AdminController.getAll",
+				"responses": {
+					"200": {
+						"content": {
+							"text/html; charset=utf-8": {}
+						},
+						"description": "Successful response"
+					}
+				},
+				"summary": "Get all",
+				"tags": [
+					"Admin"
+				]
+			}
+		}
+	}
+}
