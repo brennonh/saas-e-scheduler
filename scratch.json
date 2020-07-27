@@ -36,12 +36,16 @@
   "httpTarget": {
     "uri": "https://saas-e-scheduler-q5ypazqa2q-uc.a.run.app/api/schedule/add",
     "httpMethod": "POST",
-    "body": {  
+    "body": {
       "name": "testing2",
       "type": "lifecycle",
       "state": "CREATE",
       "schedule": "0 * * * * ",
       "httpTarget": {
+        "headers": {
+          "accept": "application/json",
+          "Content-Type": "application/json"
+        },
         "uri": "https://saas-e-scheduler-q5ypazqa2q-uc.a.run.app/api/schedule/testing",
         "httpMethod": "GET"
       }
@@ -217,7 +221,19 @@ records.forEach(employee => {
 })
 
 
-curl -X POST "https://mtscheduler-q5ypazqa2q-uc.a.run.app//api/schedule" -H "accept: application/json" -H "Content-Type: application/json" -d {"name":"testing","type":"lifecycle","routing":"organisation.in","state":"CREATE","schedule":"0 * * * * ","job":{"routing":"notification","data":{"name":"hello world"}}}
+curl -X POST "https://mtscheduler-q5ypazqa2q-uc.a.run.app//api/schedule" -H "accept: application/json" -H "Content-Type: application/json" -d {
+  "name": "testing",
+  "type": "lifecycle",
+  "routing": "organisation.in",
+  "state": "CREATE",
+  "schedule": "0 * * * * ",
+  "job": {
+    "routing": "notification",
+    "data": {
+      "name": "hello world"
+    }
+  }
+}
 
 {
   "name": "testing",

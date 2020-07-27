@@ -1,3 +1,5 @@
+
+require('@google-cloud/debug-agent').start({serviceContext: {enableCanary: false}});
 import 'reflect-metadata';
 import { bootstrapMicroframework } from 'microframework-w3tec';
 import { banner } from './lib/banner';
