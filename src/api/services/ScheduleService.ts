@@ -50,9 +50,9 @@ export class ScheduleService {
       },
     };
 
-    // resource.httpTarget.body = Buffer.from(JSON.stringify(job.httpTarget.body)).toString('base64');
     if (job.httpTarget.body) {
       resource.httpTarget.body = job.httpTarget.body;
+      resource.httpTarget.headers = job.httpTarget.headers;
     }
 
     return new Promise((resolve, reject) => {

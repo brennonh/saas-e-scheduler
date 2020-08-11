@@ -46,6 +46,7 @@ export interface HttpTarget {
   uri: string;
   body?: string;
   httpMethod: httpMethod;
+  headers?: Map<string, string>;
 }
 
 export enum httpMethod {

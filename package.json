@@ -44,7 +44,7 @@
     "faker": "^4.1.0",
     "figlet": "^1.2.0",
     "glob": "^7.1.4",
-    "googleapis": "^43.0.0",
+    "googleapis": "43.0.0",
     "helmet": "^3.20.0",
     "jsonfile": "5.0.0",
     "microframework-w3tec": "^0.6.3",
